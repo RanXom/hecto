@@ -18,6 +18,8 @@ impl Editor {
     }
     fn repl(&mut self) -> Result<(), std::io::Error> {
         enable_raw_mode()?;
+
+        print!("\x1b[2J");
         
         loop {
             if let Key(KeyEvent {
@@ -38,6 +40,9 @@ impl Editor {
         }
 
         disable_raw_mode().unwrap();
+        
+        print!("\x1b[2J");
+        
         Ok(())
     }
 }
