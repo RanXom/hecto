@@ -28,7 +28,7 @@ impl View {
         if height == 0 || width == 0 {
             return;
         }
-        // we allow this since we don't care if our welcome message is put _exactly_ in the middle.
+        // allow this since don't care if welcome message is put _exactly_ in the middle.
         // it's allowed to be a bit too far up or down
         #[allow(clippy::integer_division)]
         let vertical_center = height / 3;
@@ -59,7 +59,7 @@ impl View {
         if width <= len {
             return "~".to_string();
         }
-        // we allow this since we don't care if our welcome message is put _exactly_ in the middle.
+        // allowing this since don't care if welcome message is put _exactly_ in the middle.
         // it's allowed to be a bit to the left or right.
         #[allow(clippy::integer_division)]
         let padding = (width.saturating_sub(len).saturating_sub(1)) / 2;
