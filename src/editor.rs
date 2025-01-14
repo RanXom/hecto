@@ -35,7 +35,6 @@ impl Editor {
             view,
         })
     }
-    
     pub fn run(&mut self) {
         loop {
             self.refresh_screen();
@@ -81,18 +80,12 @@ impl Editor {
                     }
                 }
             }
-        } else {
-            #[cfg(debug_assertions)]
-            {
-                panic!("Received and discarded unsupported or non-press event.");
-            }
-        }
+        } 
     }
-
     fn refresh_screen(&mut self) {
         let _ = Terminal::hide_caret();
         self.view.render();
-        let _ = Terminal::move_caret_to(self.view.get_position());
+        let _ = Terminal::move_caret_to(self.view.caret_position());
         let _ = Terminal::show_caret();
         let _ = Terminal::execute();
     }

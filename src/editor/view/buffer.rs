@@ -17,8 +17,10 @@ impl Buffer {
         }
         Ok(Self { lines })
     }
-    
     pub fn is_empty(&self) -> bool {
         self.lines.is_empty()
+    }
+    pub fn height(&self) -> usize {
+        self.lines.len()
     }
 }
