@@ -51,7 +51,7 @@ Follow these steps to clone and run Hecto on your local machine:
 - Use arrow keys for navigation.
 - Open `.txt` files to view their content, using the following command:
 ```bash
-   cargo run [path/to/your/txt/file]
+   cargo run path/to/your/txt/file
    ```
 - Edit files with character insertion and deletion.
 - Stay tuned for upcoming updates with more interactive features!
