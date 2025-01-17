@@ -1,6 +1,6 @@
-C:\Users\beide\OneDrive\Documents\Softwares\hecto\target\debug\deps\hecto.exe: src/main.rs src\editor.rs src\editor\editorcommand.rs src\editor\terminal.rs src\editor\view.rs src\editor\view\buffer.rs src\editor\view\line.rs
+C:\Users\beide\OneDrive\Documents\Projects\hecto\target\debug\deps\hecto.exe: src/main.rs src\editor.rs src\editor\editorcommand.rs src\editor\terminal.rs src\editor\view.rs src\editor\view\buffer.rs src\editor\view\line.rs
 
-C:\Users\beide\OneDrive\Documents\Softwares\hecto\target\debug\deps\hecto.d: src/main.rs src\editor.rs src\editor\editorcommand.rs src\editor\terminal.rs src\editor\view.rs src\editor\view\buffer.rs src\editor\view\line.rs
+C:\Users\beide\OneDrive\Documents\Projects\hecto\target\debug\deps\hecto.d: src/main.rs src\editor.rs src\editor\editorcommand.rs src\editor\terminal.rs src\editor\view.rs src\editor\view\buffer.rs src\editor\view\line.rs
 
 src/main.rs:
 src\editor.rs:
