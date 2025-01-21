@@ -5,6 +5,7 @@ use self::line::Line;
 use super::{
     editorcommand::{Direction, EditorCommand},
     terminal::{Position, Size, Terminal},
+    DocumentStatus,
 };
 mod buffer;
 use buffer::Buffer;
@@ -25,6 +26,43 @@ pub struct View {
 }
 
 impl View {
+    pub fn new(margin_bottom: usize) -> Self {
+        let terminal_size = Terminal::size().unwrap_or_default();
+        Self {
+            buffer: Buffer::default(),
+            needs_redraw: true,
+            size: Size {
+                width: terminal_size.width,
+                height: terminal_size.height,
+            },
+            text_location: Location::default(),
+            scroll_offset: Position::default(),
+        }
+    }
+
+    pub fn get_status(&self) -> DocumentStatus {
+        DocumentStatus {
+            total_lines: self.buffer.height(),
+            current_line_index: self.text_location.line_index,
+            file_name: self.buffer.file_name.clone(),
+            is_modified: self.buffer.dirty,
+        }
+    }
+
+    // region: file i/o
+    pub fn load(&mut self, file_name: &str) {
+        if let Ok(buffer) = Buffer::load(file_name) {
+            self.buffer = buffer;
+            self.needs_redraw = true;
+        }
+    }
+
+    fn save(&mut self) {
+        let _ = self.buffer.save();
+    }
+    // endregion
+
+    // region: Command Handling
     pub fn handle_command(&mut self, command: EditorCommand) {
         match command {
             EditorCommand::Resize(size) => self.resize(size),
@@ -34,13 +72,7 @@ impl View {
             EditorCommand::Backspace => self.delete_backward(),
             EditorCommand::Delete => self.delete(),
             EditorCommand::Enter => self.insert_newline(),
-        }
-    }
-
-    pub fn load(&mut self, file_name: &str) {
-        if let Ok(buffer) = Buffer::load(file_name) {
-            self.buffer = buffer;
-            self.needs_redraw = true;
+            EditorCommand::Save => self.save(),
         }
     }
 
@@ -49,6 +81,7 @@ impl View {
         self.scroll_text_location_into_view();
         self.needs_redraw = true;
     }
+    // endregion
 
     // region: Text Editing
     fn insert_newline(&mut self) {
