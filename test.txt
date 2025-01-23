@@ -1,2 +1,1 @@
-afasdfad
-Hey wassup
+Hey! This was written using hecto! A CLI Based text editor built in rust.
