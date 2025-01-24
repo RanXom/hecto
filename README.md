@@ -8,16 +8,15 @@ Currently, Hecto supports:
 
 - Displaying a clean editor interface with tildes (`~`) on empty lines.
 - A welcome message at startup.
-- Opening and displaying the content of `.txt` files.
-- Character insertion and deletion (line changes via `Enter` and `Tab` are not supported yet).
+- Opening, displaying & editing the contents of `.txt` files.
+- File Status
+- Save & save as functionality.
 
 Planned features include:
 
-- Support for line changes (Enter and Tab).
-- File saving.
+- Search functionality.
 - Syntax highlighting.
 - Advanced navigation (jumping to specific lines, etc.).
-- Search functionality.
 
 ## Getting Started
 
