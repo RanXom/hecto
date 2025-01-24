@@ -18,7 +18,7 @@ impl Default for Message {
     fn default() -> Self {
         Self {
             text: String::new(),
-            time: Instant::now()
+            time: Instant::now() 
         }
     }
 }
@@ -36,9 +36,9 @@ pub struct MessageBar {
     cleared_after_expiry: bool,
 }
 impl MessageBar {
-    pub fn update_message(&mut self, new_message: String) {
+    pub fn update_message(&mut self, new_message: &str) {
         self.current_message = Message {
-            text: new_message,
+            text: new_message.to_string(),
             time: Instant::now(),
         };
         self.cleared_after_expiry = false;
