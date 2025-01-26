@@ -1,21 +1,22 @@
 use std::{
     io::Error,
-    time::{Duration, Instant}
+    time::{Duration, Instant},
 };
-use super::{Size, Terminal, UIComponent};
 
-pub const DEFAULT_DURATION: Duration = Duration::new(5, 0);
+use super::super::{Size, Terminal};
+use super::UIComponent;
+
+const DEFAULT_DURATION: Duration = Duration::new(5, 0);
 
 struct Message {
     text: String,
-    time: Instant
+    time: Instant,
 }
-
 impl Default for Message {
     fn default() -> Self {
         Self {
             text: String::new(),
-            time: Instant::now() 
+            time: Instant::now(),
         }
     }
 }
@@ -30,8 +31,9 @@ impl Message {
 pub struct MessageBar {
     current_message: Message,
     needs_redraw: bool,
-    cleared_after_expiry: bool,
+    cleared_after_expiry: bool, //ensures we can properly hide expired messages
 }
+
 impl MessageBar {
     pub fn update_message(&mut self, new_message: &str) {
         self.current_message = Message {
@@ -42,6 +44,7 @@ impl MessageBar {
         self.set_needs_redraw(true);
     }
 }
+
 impl UIComponent for MessageBar {
     fn set_needs_redraw(&mut self, value: bool) {
         self.needs_redraw = value;
@@ -59,6 +62,7 @@ impl UIComponent for MessageBar {
         } else {
             &self.current_message.text
         };
+
         Terminal::print_row(origin, message)
     }
 }

@@ -5,6 +5,7 @@ pub struct Position {
     pub col: Col,
     pub row: Row,
 }
+
 impl Position {
     pub const fn saturating_sub(self, other: Self) -> Self {
         Self {
