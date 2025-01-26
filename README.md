@@ -9,14 +9,13 @@ Currently, Hecto supports:
 - Displaying a clean editor interface with tildes (`~`) on empty lines.
 - A welcome message at startup.
 - Opening, displaying & editing the contents of `.txt` files.
-- File Status
+- File status indication.
 - Save & save as functionality.
+- Searching text with highlights.
+- Improved UI for a better editing experience.
 
-Planned features include:
-
-- Search functionality.
-- Syntax highlighting.
-- Advanced navigation (jumping to specific lines, etc.).
+### Note:
+Syntax highlighting is not implemented, as adding this feature might shift the focus of the project from a text editor to a code editor.
 
 ## Getting Started
 
@@ -53,7 +52,8 @@ Follow these steps to clone and run Hecto on your local machine:
    cargo run path/to/your/txt/file
    ```
 - Edit files with character insertion and deletion.
-- Stay tuned for upcoming updates with more interactive features!
+- Use the search functionality to find text within your files, with matches highlighted.
+- Save your changes using the save functionality.
 
 ## Resources
 
